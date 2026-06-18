@@ -1,37 +1,27 @@
-import { useScrollAnimation } from '@/hooks/use-scroll-animation'
-import { cn } from '@/lib/utils'
-
 export function HeroSection() {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.01 })
-
   return (
     <section
+      aria-labelledby="hero-heading"
       className="relative overflow-hidden"
       style={{ background: 'linear-gradient(160deg, #1e52d8 0%, #1f6bef 60%, #2575f5 100%)' }}
-      ref={ref}
     >
-      {/* Decorative blobs */}
+      {/* Decorative blobs — CSS only, no JS, no filter on LCP path */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-white/5 blur-3xl" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-2xl" />
       </div>
 
-      {/* Content */}
+      {/* Content — immediately visible, no JS-gated opacity so LCP is instant */}
       <div className="relative max-w-4xl mx-auto px-6 pt-32 pb-28 text-center">
+        {/* h1 has NO animation — it is the LCP element; it must be visible on first paint */}
         <h1
-          className={cn(
-            'text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5 transition-all duration-700',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          )}
+          id="hero-heading"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5"
         >
           RemoteRecruit's Difference
         </h1>
         <p
-          className={cn(
-            'text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto transition-all duration-700',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          )}
-          style={{ transitionDelay: '150ms' }}
+          className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-up"
         >
           RemoteRecruit is connecting the world with an easy-to-use platform that lets full-time,
           part-time, and freelance workers showcase their talents to businesses that need them.
@@ -48,6 +38,7 @@ export function HeroSection() {
           xmlns="http://www.w3.org/2000/svg"
           className="absolute bottom-0 w-full h-full"
           preserveAspectRatio="none"
+          focusable="false"
         >
           <path d="M0,80 L0,40 Q360,0 720,30 Q1080,60 1440,20 L1440,80 Z" fill="white" />
         </svg>

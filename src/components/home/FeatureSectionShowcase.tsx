@@ -2,17 +2,17 @@ import { useScrollAnimation } from '@/hooks/use-scroll-animation'
 import { cn } from '@/lib/utils'
 
 const skillTags = [
-  { label: 'Python Dev', color: 'bg-purple-100 text-purple-700' },
-  { label: 'JavaScript', color: 'bg-yellow-100 text-yellow-700' },
-  { label: 'Vue3rd', color: 'bg-green-100 text-green-700' },
-  { label: 'Redux Grid', color: 'bg-blue-100 text-blue-700' },
-  { label: 'iOS Development', color: 'bg-gray-100 text-gray-600' },
-  { label: '+2', color: 'bg-gray-100 text-gray-500' },
+  { label: 'Python Dev', color: 'bg-purple-100 text-purple-800' },
+  { label: 'JavaScript', color: 'bg-yellow-100 text-yellow-800' },
+  { label: 'Vue3rd', color: 'bg-green-100 text-green-800' },
+  { label: 'Redux Grid', color: 'bg-blue-100 text-blue-800' },
+  { label: 'iOS Development', color: 'bg-gray-100 text-gray-700' },
+  { label: '+2', color: 'bg-gray-100 text-gray-600' },
 ]
 
 function ProfileMockup() {
   return (
-    <div className="relative w-full max-w-xs mx-auto">
+    <div className="relative w-full max-w-xs mx-auto" aria-hidden="true">
       <div className="bg-white rounded-2xl shadow-2xl shadow-brand-100/80 overflow-hidden border border-gray-100">
         {/* Profile header with gradient */}
         <div
@@ -23,7 +23,7 @@ function ProfileMockup() {
           {/* Avatar */}
           <div className="absolute -bottom-6 left-5">
             <div className="w-12 h-12 rounded-full bg-white border-2 border-white shadow-md flex items-center justify-center">
-              <span className="text-brand-600 font-extrabold text-lg">JD</span>
+              <span className="text-brand-700 font-extrabold text-lg">JD</span>
             </div>
           </div>
         </div>
@@ -36,10 +36,10 @@ function ProfileMockup() {
           </div>
 
           <div className="text-sm font-bold text-gray-800 mb-0.5">John Developer</div>
-          <div className="text-xs text-gray-400 mb-4">Full Stack Engineer · Remote</div>
+          <div className="text-xs text-gray-600 mb-4">Full Stack Engineer · Remote</div>
 
           {/* Skills */}
-          <div className="text-xs text-gray-500 font-medium mb-2">Skills</div>
+          <div className="text-xs text-gray-600 font-medium mb-2">Skills</div>
           <div className="flex flex-wrap gap-1.5">
             {skillTags.map((tag) => (
               <span
@@ -63,7 +63,7 @@ export function FeatureSectionShowcase() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="py-20 bg-white overflow-hidden" ref={ref}>
+    <section aria-labelledby="showcase-heading" className="py-20 bg-white overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left – Text */}
@@ -73,19 +73,19 @@ export function FeatureSectionShowcase() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             )}
           >
-            <span className="inline-block bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+            <span className="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-5">
               Custom Profile
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+            <h2 id="showcase-heading" className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
               Showcase Your Talents
             </h2>
-            <p className="text-gray-500 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
               Personalize your profile with everything that makes you unique. Add an introductory
               video and other media for a personal touch that stands out to employers and candidates.
             </p>
           </div>
 
-          {/* Right – Mockup */}
+          {/* Right – Mockup (decorative) */}
           <div
             className={cn(
               'flex justify-center lg:justify-end transition-all duration-700',

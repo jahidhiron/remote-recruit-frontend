@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RemoteRecruit – Find Your Dream Remote Job</title>
     <meta name="description" content="RemoteRecruit connects top remote talent with the world's best companies. Browse thousands of remote jobs and find your perfect match." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RemoteRecruit – Find Your Dream Remote Job" />
+    <meta property="og:description" content="RemoteRecruit connects top remote talent with the world's best companies. Browse thousands of remote jobs and find your perfect match." />
+
+    <!-- Preconnect + dns-prefetch for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <!--
+      Non-blocking font strategy:
+      rel="preload" as="style" fetches the CSS in parallel without blocking render.
+      onload swaps rel to "stylesheet" once the fetch completes (font applies asynchronously).
+      <noscript> provides a synchronous fallback for JS-disabled browsers.
+      Weights trimmed to 400–800 only (300 and 900 are never used in this project).
+    -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

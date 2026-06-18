@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 
 function FindWorkMockup() {
   return (
-    <div className="relative w-full max-w-xs mx-auto pb-8">
+    <div className="relative w-full max-w-xs mx-auto pb-8" aria-hidden="true">
       {/* Decorative dot */}
       <div className="absolute -top-3 -left-3 w-5 h-5 rounded-full bg-brand-500 z-10" />
 
@@ -19,7 +19,7 @@ function FindWorkMockup() {
         {/* Search */}
         <div className="px-4 py-3 border-b border-gray-100">
           <div className="flex gap-2">
-            <div className="flex-1 bg-gray-50 rounded-lg px-3 py-1.5 text-xs text-gray-400 border border-gray-200">
+            <div className="flex-1 bg-gray-50 rounded-lg px-3 py-1.5 text-xs text-gray-500 border border-gray-200">
               Search jobs...
             </div>
             <div className="bg-brand-600 rounded-lg px-3 py-1.5 text-xs text-white font-semibold">
@@ -36,7 +36,7 @@ function FindWorkMockup() {
             </div>
             <div>
               <div className="text-xs font-bold text-gray-800">Felicitious Gnu</div>
-              <div className="text-xs text-brand-600 font-medium">Python Developer</div>
+              <div className="text-xs text-brand-700 font-medium">Python Developer</div>
             </div>
           </div>
 
@@ -46,7 +46,7 @@ function FindWorkMockup() {
             </div>
             <div>
               <div className="text-xs font-bold text-gray-800">Mel Museliphem</div>
-              <div className="text-xs text-gray-500 font-medium">Graphic Designer</div>
+              <div className="text-xs text-gray-600 font-medium">Graphic Designer</div>
             </div>
           </div>
         </div>
@@ -54,8 +54,8 @@ function FindWorkMockup() {
 
       {/* Floating badge */}
       <div className="absolute -bottom-3 right-4 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 border border-gray-100">
-        <div className="w-5 h-5 rounded-full bg-green-400 flex items-center justify-center">
-          <span className="text-white text-xs leading-none">✓</span>
+        <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
+          <span className="text-white text-xs leading-none" aria-hidden="true">✓</span>
         </div>
         <span className="text-xs font-semibold text-gray-700">Hired Today!</span>
       </div>
@@ -67,7 +67,7 @@ export function FeatureSectionGlobal() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="py-20 bg-white overflow-hidden" ref={ref}>
+    <section aria-labelledby="global-heading" className="py-20 bg-white overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left – Text */}
@@ -77,20 +77,20 @@ export function FeatureSectionGlobal() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             )}
           >
-            <span className="inline-block bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+            <span className="inline-block bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-5">
               Global Reach
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+            <h2 id="global-heading" className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
               The First Fully Global Job Board, Anywhere, Ever
             </h2>
-            <p className="text-gray-500 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
               RemoteRecruit connects candidates with opportunities around the world. With today's
               remote-first workforce, you need to be able to find the best jobs and the best
               people for them, wherever they may be.
             </p>
           </div>
 
-          {/* Right – Mockup */}
+          {/* Right – Mockup (decorative) */}
           <div
             className={cn(
               'flex justify-center lg:justify-end transition-all duration-700',
