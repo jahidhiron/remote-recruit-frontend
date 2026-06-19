@@ -13,7 +13,7 @@ export function HelpSection() {
   return (
     <section
       aria-labelledby="help-heading"
-      className="bg-white pt-10 pb-0 lg:pt-[100px] lg:pb-0"
+      className="bg-white overflow-hidden pt-10 pb-0 lg:pt-[100px] lg:pb-0"
       ref={ref as React.RefObject<HTMLElement>}
     >
       <div className="max-w-[1440px] mx-auto px-0">
@@ -42,7 +42,7 @@ export function HelpSection() {
         </div>
 
         {/* MOBILE VIEW (<lg) */}
-        <div className="block lg:hidden relative w-full overflow-hidden rounded-[24px] bg-[#f9fafb] mx-4 w-[calc(100%-32px)] pt-6 pb-20">
+        <div className="block lg:hidden relative overflow-hidden rounded-[24px] bg-[#f9fafb] mx-4 pt-6 pb-20">
           {/* Top image */}
           <img loading="lazy" decoding="async" 
             src={topMobileBg} 

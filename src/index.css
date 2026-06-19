@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply font-sans text-[#11142d] antialiased;
+    @apply font-sans text-[#11142d] antialiased overflow-x-hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

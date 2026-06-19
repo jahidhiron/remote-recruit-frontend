@@ -51,7 +51,7 @@ export const pricingPlans: PricingPlan[] = [
       { text: 'Unlimited Job Applicants' },
       { text: 'Invite Anyone to Apply to Your Jobs' },
     ],
-    ctaLabel: 'Get Started',
+    ctaLabel: 'Get Started',  
     highlighted: false,
   },
   {

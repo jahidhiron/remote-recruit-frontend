@@ -1,6 +1,6 @@
 
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
-import { faqItems, FaqItem } from '@/data/mock-data'
+import { faqItems } from '@/data/mock-data'
 import { cn } from '@/lib/utils'
 
 export function FaqSection() {
@@ -25,7 +25,7 @@ export function FaqSection() {
         </h2>
 
         <dl className="space-y-10">
-          {faqItems.map((item: FaqItem, index: number) => (
+          {faqItems.map((item, index) => (
             <div
               key={item.id}
               className={cn(
