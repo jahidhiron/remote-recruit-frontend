@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
-      port: parseInt(env.VITE_APP_PORT) || 5173,
+      port: parseInt(env.VITE_APP_PORT) || 4000,
       proxy: {
         // Forward /api/v1/* to the backend — eliminates CORS issues in dev
         [apiPath]: {
@@ -39,17 +39,8 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             // Core React runtime — most stable, best for long-term caching
             'vendor-react': ['react', 'react-dom'],
-            // Redux stack — updates together
-            'vendor-redux': [
-              '@reduxjs/toolkit',
-              'react-redux',
-              'redux-saga',
-              'redux-persist',
-            ],
             // Utility libs
-            'vendor-utils': ['axios', 'clsx', 'tailwind-merge', 'lodash.debounce'],
-            // Icon library — large but rarely changes
-            'vendor-icons': ['lucide-react'],
+            'vendor-utils': ['clsx', 'tailwind-merge'],
           },
         },
       },

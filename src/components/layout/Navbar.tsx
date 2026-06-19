@@ -1,64 +1,72 @@
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import logoNavbar from '@/assets/logo-navbar.svg'
 
-export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
+// ── Logo — exact Figma export (logo-navbar.svg, 124×50px) ───────────────────
+function RRLogo() {
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
-      <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2" aria-label="RemoteRecruit home">
-            <div className="flex flex-col leading-none">
-              <span className="text-xs font-medium text-white tracking-widest uppercase">Remote</span>
-              <span className="text-base font-extrabold text-white tracking-tight -mt-0.5">Recruit</span>
-            </div>
+    <img
+      src={logoNavbar}
+      alt="RemoteRecruit"
+      width={124}
+      height={50}
+      style={{ display: 'block' }}
+      draggable={false}
+      fetchPriority="high"
+    />
+  )
+}
+
+// ── Navbar ───────────────────────────────────────────────────────────────────
+export function Navbar() {
+  return (
+    <header className="absolute top-0 left-0 right-0 z-50 w-full">
+      <nav aria-label="Main navigation" className="w-full max-w-[1440px] mx-auto">
+
+        {/* ── Desktop ≥ md ───────────────────────────────────────────── */}
+        <div className="hidden md:flex items-center h-[108px] px-[51px]">
+
+          {/* Logo — left edge */}
+          <a href="#" aria-label="RemoteRecruit home" className="shrink-0 mr-auto hover:opacity-80 transition-opacity duration-200">
+            <RRLogo />
           </a>
 
-          {/* Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Auth — right edge */}
+          <div className="flex items-center gap-3">
+            {/* Sign In: 14px SemiBold, #f5f7fe, letter-spacing 0.4px */}
             <a
               href="#"
-              className="text-sm font-medium text-white px-3 py-1.5 transition-colors hover:text-white/80"
+              className="text-[14px] font-semibold leading-[18px] tracking-[0.4px] text-[#f5f7fe] hover:text-white transition-colors"
             >
               Sign In
             </a>
-            <Button
-              size="sm"
-              className="bg-brand-600 hover:bg-brand-500 text-white rounded-md px-5 py-2 text-sm font-semibold"
+
+            {/* Sign Up: 92×44 px, bg rgba(77,168,204,0.9), border #52b4da, rounded-[16px] */}
+            <a
+              href="#"
+              className="inline-flex items-center justify-center rounded-[16px] border border-[#52b4da] text-[14px] font-semibold leading-[18px] tracking-[0.4px] text-[#f5f7fe] transition-all duration-200 hover:opacity-90 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52b4da]"
+              style={{ width: '92px', height: '44px', backgroundColor: 'rgba(77,168,204,0.9)' }}
             >
               Sign Up
-            </Button>
+            </a>
           </div>
-
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden p-2 text-white"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-          >
-            {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
-          </button>
         </div>
 
-        {/* Mobile menu */}
-        <div
-          id="mobile-menu"
-          className={menuOpen ? 'md:hidden bg-white/10 backdrop-blur-sm rounded-xl mt-2 p-4 space-y-2' : 'hidden'}
-          aria-hidden={!menuOpen}
-        >
-          <a
-            href="#"
-            className="block text-sm font-medium text-white px-3 py-2 rounded-lg hover:bg-white/10"
-            onClick={() => setMenuOpen(false)}
-          >
-            Sign In
+        {/* ── Mobile < md ────────────────────────────────────────────── */}
+        <div className="md:hidden flex items-center justify-between h-[72px] px-5">
+          <a href="#" aria-label="RemoteRecruit home" className="hover:opacity-80 transition-opacity duration-200">
+            <RRLogo />
           </a>
-          <Button size="sm" className="w-full">Sign Up</Button>
+          <div className="flex items-center gap-3">
+            <a href="#" className="text-[14px] font-semibold text-[#f5f7fe] hover:text-white active:opacity-70 transition-colors">
+              Sign In
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center justify-center rounded-[16px] border border-[#52b4da] text-[14px] font-semibold text-[#f5f7fe] hover:opacity-90 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52b4da]"
+              style={{ width: '84px', height: '38px', backgroundColor: 'rgba(77,168,204,0.9)' }}
+            >
+              Sign Up
+            </a>
+          </div>
         </div>
       </nav>
     </header>

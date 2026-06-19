@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
     <title>RemoteRecruit – Find Your Dream Remote Job</title>
     <meta name="description" content="RemoteRecruit connects top remote talent with the world's best companies. Browse thousands of remote jobs and find your perfect match." />
 
@@ -23,16 +24,20 @@
       <noscript> provides a synchronous fallback for JS-disabled browsers.
       Weights trimmed to 400–800 only (300 and 900 are never used in this project).
     -->
+    <!--
+      Poppins — used across all Figma components (400, 500, 600, 700).
+      Non-blocking strategy: preload fetches in parallel; onload swaps rel to stylesheet.
+    -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       />
     </noscript>
   </head>
